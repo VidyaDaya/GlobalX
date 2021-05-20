@@ -1,0 +1,16 @@
+D:\CSharpPractice\GlobalX\bin\Debug\net5.0\GlobalX.exe
+D:\CSharpPractice\GlobalX\bin\Debug\net5.0\GlobalX.deps.json
+D:\CSharpPractice\GlobalX\bin\Debug\net5.0\GlobalX.runtimeconfig.json
+D:\CSharpPractice\GlobalX\bin\Debug\net5.0\GlobalX.runtimeconfig.dev.json
+D:\CSharpPractice\GlobalX\bin\Debug\net5.0\GlobalX.dll
+D:\CSharpPractice\GlobalX\bin\Debug\net5.0\ref\GlobalX.dll
+D:\CSharpPractice\GlobalX\bin\Debug\net5.0\GlobalX.pdb
+D:\CSharpPractice\GlobalX\obj\Debug\net5.0\GlobalX.csprojAssemblyReference.cache
+D:\CSharpPractice\GlobalX\obj\Debug\net5.0\GlobalX.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpPractice\GlobalX\obj\Debug\net5.0\GlobalX.AssemblyInfoInputs.cache
+D:\CSharpPractice\GlobalX\obj\Debug\net5.0\GlobalX.AssemblyInfo.cs
+D:\CSharpPractice\GlobalX\obj\Debug\net5.0\GlobalX.csproj.CoreCompileInputs.cache
+D:\CSharpPractice\GlobalX\obj\Debug\net5.0\GlobalX.dll
+D:\CSharpPractice\GlobalX\obj\Debug\net5.0\ref\GlobalX.dll
+D:\CSharpPractice\GlobalX\obj\Debug\net5.0\GlobalX.pdb
+D:\CSharpPractice\GlobalX\obj\Debug\net5.0\GlobalX.genruntimeconfig.cache
