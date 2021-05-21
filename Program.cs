@@ -9,16 +9,19 @@ namespace GlobalX
     {
         static void Main(string[] args)
         {
-            TextFileReader.ReadFile();
+            TextFileReader fileObject=new TextFileReader();
+
+            fileObject.ReadFile("unsorted-names-list.txt");
         }
     }
 
-    public class FullName{
-        public string GivenName;
-        public string LastName;
 
-        FullName[] nameList=new FullName[200];
-        FullName name= new FullName();
+    public class PersonDetail
+    {
+        public string GivenName{get; set;}
+        public string LastName{get; set;}
+
+        
     }
 
     

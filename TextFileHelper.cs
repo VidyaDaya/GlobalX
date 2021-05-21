@@ -2,34 +2,48 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using GlobalX;
 
 namespace TextFileHelper{
 
-    public static class TextFileReader{
-        static string textFile="unsorted-names-list.txt";
+    public  class TextFileReader
+    {
+        //  string textFile="unsorted-names-list.txt";
+
+        List<PersonDetail> nameList=new List<PersonDetail>();
+        PersonDetail name= new PersonDetail();
         
-        public static void ReadFile() {
+        public void ReadFile(string fileName) {
             
-            if (File.Exists(textFile)) {     
-            using(StreamReader file = new StreamReader(textFile)) {
-                string ln,lastName,givenName; 
-                List<string> lNames=new List<string>(); 
+            if (File.Exists(fileName)) {     
+            using(StreamReader file = new StreamReader(fileName)) {
+                string ln; 
+                // List<string> lNames=new List<string>(); 
             
                 while ((ln = file.ReadLine()) != null) {
-                   lastName=ln.Split(' ').LastOrDefault();
-                    givenName=ln.Substring(0, ln.LastIndexOf(' ')).TrimEnd(); 
-                    lNames.Add(lastName); 
+                   name.LastName=ln.Split(' ').LastOrDefault();
+                    name.GivenName=ln.Substring(0, ln.LastIndexOf(' ')).TrimEnd(); 
+                    nameList.Add(new PersonDetail{GivenName=name.GivenName,LastName=name.LastName}); 
             }  
                 file.Close();  
-            lNames=lNames.OrderBy(x=>x).ToList();
-        foreach (string name in lNames)
+                nameList=nameList.OrderBy(x=>x.LastName).ThenBy(x=>x.GivenName).ToList();
+        foreach (PersonDetail person in nameList)
         {
-            Console.WriteLine(name);
+            Console.WriteLine(person.LastName);
         }
+
+        using StreamWriter newFile = new StreamWriter("sorted-names-list.txt");
+
+        foreach (PersonDetail person in nameList)
+        {
+           ln=person.GivenName+ " " +person.LastName;
+           newFile.WriteLine(ln);
+        }
+        newFile.Close();
         }
         }
         else{
-            Console.WriteLine("The File does not exist.");
+            Console.WriteLine("The File {fileName} does not exist.");
         }  
         }
 }
