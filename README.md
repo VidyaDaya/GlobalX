@@ -10,7 +10,11 @@ The final code can be found at master branch.
 HOW TO IMPLEMENT?
 
 Clone the repo
+
 Build program (dotnet build)
+
 Run the program( dotnet run)
+
 Enter filename on system prompt. (unsorted-names-list.txt is available with the repo)
+
 Find the sorted names printed on screen and written in a text file. ( sorted-names-list.txt by default)
