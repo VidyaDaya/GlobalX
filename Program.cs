@@ -19,18 +19,24 @@ namespace GlobalX
     public interface INameSorter
     {
         public void ReadFile();
-        public void WriteFile();
+        public void WriteFile(string FileName);
     }
 
-    class NameSorter : INameSorter
+    public class NameSorter : INameSorter
     {
         public string FileName { get; set;}
-        private List<PersonDetail> _nameList{get; set;}
+        public List<PersonDetail> _nameList{get; set;}
         
 
         public NameSorter()
         {
             _nameList=new List<PersonDetail>();
+
+        }
+
+        public List<PersonDetail> GetNames()
+        {
+            return _nameList;
         }
 
 
@@ -43,8 +49,10 @@ namespace GlobalX
 
         public void ReadFile()
         {
-            if (File.Exists(FileName)) {     
-            using(StreamReader file = new StreamReader(FileName)) {
+ 
+            try
+            { 
+            StreamReader file = new StreamReader(FileName);
             string line; 
             while ((line = file.ReadLine()) != null) {
                    var lastName=line.Split(' ').LastOrDefault();
@@ -53,11 +61,14 @@ namespace GlobalX
             }  
                 file.Close();
             }
-            }
-            else
+            
+        
+            catch(FileNotFoundException exe)
             {
-                Console.WriteLine("File not found");
+                Console.WriteLine(" The File {0} does not exist.", FileName);
+               throw;    
             }
+            
         }
 
         public void SortNames()
@@ -65,9 +76,9 @@ namespace GlobalX
             _nameList=_nameList.OrderBy(x=>x.LastName).ThenBy(x=>x.GivenName).ToList();
         }
 
-        public void WriteFile()
+        public void WriteFile(string outputFileName="sorted-names-list.txt")
         {
-            using StreamWriter writeFile = new StreamWriter("sorted-names-list.txt");
+            using StreamWriter writeFile = new StreamWriter(outputFileName);
             foreach (PersonDetail person in _nameList)
             {
                 var line=person.GivenName+ " " +person.LastName;
